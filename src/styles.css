@@ -49,6 +49,35 @@ body {
   background-color: hsl(0, 0%, 10%);
 }
 
+#openBtn {
+  color: hsl(0, 0%, 90%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 10%);
+  border: 2px solid hsl(0, 0%, 90%);
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#openBtn:hover {
+  background-color: hsl(0, 0%, 12%);
+  border-color: hsl(200, 70%, 50%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#openBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: hsl(200, 70%, 50%);
+}
+
 .task-checkbox {
   appearance: none;
   width: 24px;
