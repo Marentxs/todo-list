@@ -33,3 +33,38 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+body {
+  background-color: hsl(0, 0%, 7%);
+  color: hsl(0, 0%, 90%);
+}
+
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 10%);
+}
+
+.task-checkbox {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid hsl(200, 70%, 50%);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-checkbox:hover {
+  border-color: hsl(200, 80%, 60%);
+  box-shadow: 0 0 10px hsla(200, 70%, 50%, 0.3);
+}
+
+.task-checkbox:checked {
+  background-color: hsl(200, 70%, 50%);
+  border-color: hsl(200, 70%, 50%);
+}

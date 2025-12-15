@@ -12,7 +12,25 @@ const testTask = new Task(
   false
 );
 
+const testTask2 = new Task(
+  "Testing",
+  "Test description",
+  "2024-12-14",
+  "High",
+  false
+);
+
+const testTask3 = new Task(
+  "Testing",
+  "Test description",
+  "2024-12-14",
+  "High",
+  false
+);
+
 myProject.addTask(testTask);
+myProject.addTask(testTask2);
+myProject.addTask(testTask3);
 
 const tasks = myProject.getTasks();
 renderTasks(tasks);
