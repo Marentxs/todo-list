@@ -1,9 +1,11 @@
 import "./styles.css";
-import { Task, Project } from "./model.js";
-import { renderTasks } from "./ui.js";
+import { Task, Project, projectList } from "./model.js";
+import { renderTasks, renderProjects } from "./ui.js";
 import { PopupController } from "./controller.js";
 
+const myProjectList = new projectList();
 const myProject = new Project();
+
 const testTask = new Task(
   "Testing",
   "Test description",
@@ -35,4 +37,4 @@ myProject.addTask(testTask3);
 const tasks = myProject.getTasks();
 renderTasks(tasks);
 
-new PopupController(myProject);
+new PopupController(myProject, myProjectList);

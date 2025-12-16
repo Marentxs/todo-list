@@ -43,3 +43,26 @@ export function renderTasks(tasks) {
     container.appendChild(taskCard);
   });
 }
+
+export function renderProjects(projects) {
+  const container = document.getElementById("project-container");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  projects.forEach((project) => {
+    const projectCard = document.createElement("div");
+    projectCard.className = "project-card";
+    projectCard.dataset.id = project.id;
+
+    const contentWrapper = document.createElement("div");
+    contentWrapper.className = "project-card-content";
+
+    const projectTitle = document.createElement("h2");
+    projectTitle.className = "project-title";
+    projectTitle.textContent = project.title;
+
+    projectCard.appendChild(contentWrapper);
+    container.appendChild(projectCard);
+  });
+}

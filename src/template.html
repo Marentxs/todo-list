@@ -6,53 +6,59 @@
     <title>Todo List</title>
   </head>
   <body>
-    <button id="newProjectBtn">New Project</button>
+    <div class="project-side">
+      <button id="newProjectBtn">New Project</button>
 
-    <div class="projectPopup" id="projectPopup">
-      <div>
-        <form id="projectForm" method="get">
-          <label for="title">Title</label>
-          <input type="text" name="title" id="projectTitle" required />
+      <div class="projectPopup" id="projectPopup">
+        <div>
+          <form id="projectForm" method="get">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="projectTitle" required />
 
-          <button id="newProject" type="submit">Add Project</button>
-          <button id="closeProject" type="button">Cancel</button>
-        </form>
+            <button id="newProject" type="submit">Add Project</button>
+            <button id="closeProject" type="button">Cancel</button>
+          </form>
+        </div>
       </div>
+
+      <div id="project-container"></div>
     </div>
 
-    <button id="openBtn">Add Task</button>
+    <div class="task-side">
+      <button id="openBtn">Add Task</button>
 
-    <div class="popup" id="popup">
-      <div>
-        <form id="taskForm" action="" method="get">
-          <label for="title">Title</label>
-          <input type="text" name="title" id="title" required />
+      <div class="popup" id="popup">
+        <div>
+          <form id="taskForm" action="" method="get">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" required />
 
-          <label for="description">Description</label>
-          <input type="text" name="description" id="description" required />
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" required />
 
-          <label for="date">Date</label>
-          <input type="date" name="date" id="date" required />
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date" required />
 
-          <label for="priority">Priority</label>
-          <select name="priority" id="priority-select" required>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
+            <label for="priority">Priority</label>
+            <select name="priority" id="priority-select" required>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
 
-          <div class="check">
-            <label for="done">Completed</label>
-            <input type="checkbox" name="done" id="done" />
-          </div>
+            <div class="check">
+              <label for="done">Completed</label>
+              <input type="checkbox" name="done" id="done" />
+            </div>
 
-          <button id="newTask" type="submit">Add Task</button>
-          <button id="closeTask" type="button">Cancel</button>
-        </form>
+            <button id="newTask" type="submit">Add Task</button>
+            <button id="closeTask" type="button">Cancel</button>
+          </form>
+        </div>
       </div>
-    </div>
 
-    <div id="todo-container"></div>
+      <div id="todo-container"></div>
+    </div>
 
     <div class="footer">
       <a

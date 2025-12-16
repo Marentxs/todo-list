@@ -1,9 +1,10 @@
-import { renderTasks } from "./ui.js";
-import { Task } from "./model.js";
+import { renderProjects, renderTasks } from "./ui.js";
+import { Task, Project } from "./model.js";
 
 export class PopupController {
-  constructor(project) {
+  constructor(project, projectList) {
     this.project = project;
+    this.list = projectList;
 
     this.newProjectBtn = document.getElementById("newProjectBtn");
     this.projectPopup = document.getElementById("projectPopup");
@@ -44,6 +45,12 @@ export class PopupController {
     this.projectForm.addEventListener("submit", (event) => {
       console.log("Project form submitted");
       event.preventDefault();
+
+      const title = document.getElementById("projectTitle").value;
+      this.list.addProject(new Project(title));
+
+      const updatedProjects = this.list.getProjects();
+      renderProjects(updatedProjects);
 
       this.projectPopup.classList.remove("open");
       this.projectForm.reset();
