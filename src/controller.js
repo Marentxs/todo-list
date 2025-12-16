@@ -4,25 +4,52 @@ import { Task } from "./model.js";
 export class PopupController {
   constructor(project) {
     this.project = project;
+
+    this.newProjectBtn = document.getElementById("newProjectBtn");
+    this.projectPopup = document.getElementById("projectPopup");
+    this.newProject = document.getElementById("newProject");
+    this.closeProject = document.getElementById("closeProject");
+    this.projectForm = document.getElementById("projectForm");
+
     this.openBtn = document.getElementById("openBtn");
     this.newTask = document.getElementById("newTask");
     this.popup = document.getElementById("popup");
-    this.close = document.getElementById("close");
-    this.form = document.getElementById("taskForm");
+    this.closeTask = document.getElementById("closeTask");
+    this.taskForm = document.getElementById("taskForm");
+
+    if (this.newProjectBtn) {
+      this.newProjectBtn.addEventListener("click", () => {
+        this.projectPopup.classList.add("open");
+        this.projectForm.reset();
+      });
+    }
 
     if (this.openBtn) {
       this.openBtn.addEventListener("click", () => {
         this.popup.classList.add("open");
-        this.form.reset();
+        this.taskForm.reset();
       });
     }
 
-    this.close.addEventListener("click", (event) => {
+    this.closeProject.addEventListener("click", (event) => {
+      this.projectPopup.classList.remove("open");
+      event.preventDefault();
+    });
+
+    this.closeTask.addEventListener("click", (event) => {
       this.popup.classList.remove("open");
       event.preventDefault();
     });
 
-    this.form.addEventListener("submit", (event) => {
+    this.projectForm.addEventListener("submit", (event) => {
+      console.log("Project form submitted");
+      event.preventDefault();
+
+      this.projectPopup.classList.remove("open");
+      this.projectForm.reset();
+    });
+
+    this.taskForm.addEventListener("submit", (event) => {
       console.log("Form submit event fired");
       event.preventDefault();
 
@@ -38,7 +65,7 @@ export class PopupController {
       renderTasks(updatedTasks);
 
       this.popup.classList.remove("open");
-      this.form.reset();
+      this.taskForm.reset();
     });
   }
 }

@@ -6,9 +6,21 @@
     <title>Todo List</title>
   </head>
   <body>
-    <button id="openBtn">Add Task</button>
+    <button id="newProjectBtn">New Project</button>
 
-    <div id="todo-container"></div>
+    <div class="projectPopup" id="projectPopup">
+      <div>
+        <form id="projectForm" method="get">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" required />
+
+          <button id="newProject" type="submit">Add Project</button>
+          <button id="closeProject" type="button">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+    <button id="openBtn">Add Task</button>
 
     <div class="popup" id="popup">
       <div>
@@ -34,11 +46,13 @@
             <input type="checkbox" name="done" id="done" />
           </div>
 
-          <button id="newTask">Add Task</button>
-          <button id="close">Cancel</button>
+          <button id="newTask" type="submit">Add Task</button>
+          <button id="closeTask" type="button">Cancel</button>
         </form>
       </div>
     </div>
+
+    <div id="todo-container"></div>
 
     <div class="footer">
       <a

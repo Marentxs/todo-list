@@ -13,7 +13,15 @@ export class Task {
 }
 
 export class Project {
-  #myProject = [];
+  constructor(title) {
+    if (!new.target) {
+      throw Error("You must use the 'new operator to call the constructor");
+    }
+    this.title = title;
+    this.#myProject = [];
+  }
+
+  #myProject;
 
   addTask(task) {
     this.#myProject.push(task);

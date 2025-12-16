@@ -105,7 +105,8 @@ body {
   border-color: hsl(200, 70%, 50%);
 }
 
-.popup {
+.popup,
+.projectPopup {
   display: none;
   position: fixed;
   top: 0;
@@ -122,7 +123,8 @@ body {
   overflow: hidden;
 }
 
-.popup.open {
+.popup.open,
+.projectPopup.open {
   display: flex;
   flex-direction: column;
 }
@@ -136,7 +138,8 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-#taskForm {
+#taskForm,
+#projectForm {
   display: flex;
   flex-direction: column;
   background-color: hsl(0, 0%, 10%);
