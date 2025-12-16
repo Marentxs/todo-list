@@ -138,8 +138,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-#taskForm,
-#projectForm {
+form {
   display: flex;
   flex-direction: column;
   background-color: hsl(0, 0%, 10%);
@@ -149,7 +148,7 @@ body {
   border-radius: 20px;
 }
 
-#taskForm input {
+form input {
   padding: 0.3rem;
 }
 
@@ -161,7 +160,7 @@ body {
   cursor: pointer;
 }
 
-#taskForm > button {
+form > button {
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -174,31 +173,37 @@ body {
   margin-top: 10px;
 }
 
-#newTask {
+#newTask,
+#newProject {
   background: hsl(200, 70%, 45%);
   color: hsl(0, 0%, 100%);
 }
 
-#newTask:hover {
+#newTask:hover,
+#newProject:hover {
   background: hsl(200, 70%, 60%);
   transform: translateY(-2px);
 }
 
-#newTask:active {
+#newTask:active,
+#newProject:active {
   transform: translateY(0);
 }
 
-#close {
+#closeTask,
+#closeProject {
   background: hsl(0, 0%, 20%);
   color: hsl(0, 0%, 90%);
 }
 
-#close:hover {
+#closeTask:hover,
+#closeProject:hover {
   background: hsl(0, 0%, 35%);
   transform: translateY(-2px);
 }
 
-#close:active {
+#closeTask:active,
+#closeProject:active {
   transform: translateY(0);
 }
 
