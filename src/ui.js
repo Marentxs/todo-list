@@ -12,7 +12,7 @@ export function renderTasks(tasks) {
     const contentWrapper = document.createElement("div");
     contentWrapper.className = "task-card-content";
 
-    const taskTitle = document.createElement("h3");
+    const taskTitle = document.createElement("p");
     taskTitle.className = "task-title";
     taskTitle.textContent = task.title;
     contentWrapper.appendChild(taskTitle);
@@ -61,6 +61,7 @@ export function renderProjects(projects) {
     const projectTitle = document.createElement("h2");
     projectTitle.className = "project-title";
     projectTitle.textContent = project.title;
+    contentWrapper.appendChild(projectTitle);
 
     projectCard.appendChild(contentWrapper);
     container.appendChild(projectCard);

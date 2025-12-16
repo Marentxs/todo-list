@@ -46,6 +46,74 @@ body {
   position: relative;
 }
 
+.main-wrapper {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  height: 100vh;
+  gap: 10px;
+}
+
+.project-side {
+  background-color: hsl(0, 0%, 10%);
+  border-right: 1px solid hsl(0, 0%, 15%);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-side h1 {
+  margin: 0.5rem 0;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#newProjectBtn {
+  background-color: transparent;
+  color: hsl(0, 0%, 95%);
+  border: none;
+  border-left: 3px solid hsl(200, 70%, 50%);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.4rem;
+  text-align: left;
+  border-radius: 0 6px 6px 0;
+  margin: 10px 0;
+  font-weight: 700;
+  letter-spacing: 0.05ch;
+}
+
+#newProjectBtn:hover {
+  border: 3px solid hsl(200, 70%, 50%);
+}
+
+#project-container {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-card {
+  padding: 16px 20px;
+  color: hsl(0, 0%, 80%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.project-card:hover {
+  background-color: hsla(0, 0%, 15%, 0.5);
+  border-left: 3px solid hsl(0, 0%, 40%);
+  color: hsl(0, 0%, 95%);
+}
+
 .task-card {
   display: flex;
   justify-content: space-between;
@@ -72,14 +140,16 @@ body {
   transition: all 0.2s ease;
 }
 
-#openBtn:hover {
+#openBtn:hover,
+#newProjectBtn:hover {
   background-color: hsl(0, 0%, 12%);
   border-color: hsl(200, 70%, 50%);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-#openBtn:active {
+#openBtn:active,
+#newProjectBtn:active {
   transform: translateY(0);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   color: hsl(200, 70%, 50%);
@@ -208,6 +278,7 @@ form > button {
 }
 
 .footer {
+  border-top: 1px dotted hsl(0, 0%, 30%);
   position: fixed;
   bottom: 0;
   left: 0;
