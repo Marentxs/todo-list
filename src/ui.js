@@ -1,3 +1,5 @@
+import trashIconSrc from "./images/trash.svg";
+
 export function renderTasks(tasks) {
   const container = document.getElementById("todo-container");
   if (!container) return;
@@ -32,12 +34,17 @@ export function renderTasks(tasks) {
     const checkboxWrapper = document.createElement("div");
     checkboxWrapper.className = "task-checkbox-wrapper";
 
+    const trashIcon = document.createElement("img");
+    trashIcon.src = trashIconSrc;
+    trashIcon.className = "trash-icon";
+
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = task.done;
     checkbox.className = "task-checkbox";
 
     checkboxWrapper.appendChild(checkbox);
+    checkboxWrapper.appendChild(trashIcon);
     taskCard.appendChild(checkboxWrapper);
 
     container.appendChild(taskCard);

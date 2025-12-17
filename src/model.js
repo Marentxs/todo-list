@@ -32,6 +32,15 @@ export class Project {
     const publicProject = [...this.#myProject];
     return publicProject;
   }
+
+  deleteTask(id) {
+    const index = this.#myProject.findIndex((task) => task.id === id);
+    if (index !== -1) {
+      this.#myProject.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
 }
 
 export class projectList {

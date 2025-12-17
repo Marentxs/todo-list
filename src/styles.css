@@ -114,11 +114,15 @@ body {
   color: hsl(0, 0%, 95%);
 }
 
+.task-side {
+  padding: 30px 20px;
+}
+
 .task-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
+  margin-bottom: 20px;
   padding: 20px 30px;
   border-radius: 10px;
   background-color: hsl(0, 0%, 10%);
@@ -129,11 +133,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
   padding: 20px 30px;
   border-radius: 10px;
   background-color: hsl(0, 0%, 10%);
   border: 2px solid hsl(0, 0%, 90%);
+  margin-bottom: 20px;
   font-size: 1.5rem;
   font-weight: 500;
   cursor: pointer;
@@ -153,6 +157,30 @@ body {
   transform: translateY(0);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   color: hsl(200, 70%, 50%);
+}
+
+.task-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.trash-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.7;
+  cursor: pointer;
+  filter: invert(100%);
+}
+
+.trash-icon:hover {
+  transform: scale(1.1);
+}
+
+.trash-icon:active {
+  transform: translateY(0);
 }
 
 .task-checkbox {

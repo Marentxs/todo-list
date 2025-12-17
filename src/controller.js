@@ -74,5 +74,18 @@ export class PopupController {
       this.popup.classList.remove("open");
       this.taskForm.reset();
     });
+
+    document
+      .getElementById("todo-container")
+      .addEventListener("click", (event) => {
+        if (event.target.matches(".trash-icon")) {
+          const taskCard = event.target.closest(".task-card");
+          const taskId = taskCard.dataset.id;
+
+          this.project.deleteTask(taskId);
+          const updatedTasks = this.project.getTasks();
+          renderTasks(updatedTasks);
+        }
+      });
   }
 }
