@@ -87,5 +87,26 @@ export class PopupController {
           renderTasks(updatedTasks);
         }
       });
+
+    document
+
+      .getElementById("project-container")
+      .addEventListener("click", (event) => {
+        if (event.target.closest(".project-card")) {
+          const projectCard = event.target.closest(".project-card");
+          const projectId = projectCard.dataset.id;
+          const clickedProject = this.list
+            .getProjects()
+            .find((project) => project.id === projectId);
+
+          document.querySelectorAll(".project-card").forEach((card) => {
+            card.classList.remove("active-project");
+          });
+          projectCard.classList.add("active-project");
+
+          this.project = clickedProject;
+          renderTasks(clickedProject.getTasks());
+        }
+      });
   }
 }

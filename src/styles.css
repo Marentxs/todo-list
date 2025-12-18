@@ -305,6 +305,10 @@ form > button {
   transform: translateY(0);
 }
 
+.active-project {
+  color: red;
+}
+
 .footer {
   border-top: 1px dotted hsl(0, 0%, 30%);
   position: fixed;

@@ -4,7 +4,22 @@ import { renderTasks, renderProjects } from "./ui.js";
 import { PopupController } from "./controller.js";
 
 const myProjectList = new projectList();
-const myProject = new Project();
+
+const myProject = new Project("Daily");
+const myProject2 = new Project("Weekly");
+const myProject3 = new Project("Monthly");
+
+myProjectList.addProject(myProject);
+myProjectList.addProject(myProject2);
+myProjectList.addProject(myProject3);
+
+const projects = myProjectList.getProjects();
+renderProjects(projects);
+
+const firstProjectCard = document.querySelector(".project-card");
+if (firstProjectCard) {
+  firstProjectCard.classList.add("active-project");
+}
 
 const testTask = new Task(
   "Testing",
