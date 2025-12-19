@@ -45,6 +45,7 @@ export function renderTasks(tasks) {
 
     checkboxWrapper.appendChild(checkbox);
     checkboxWrapper.appendChild(trashIcon);
+
     taskCard.appendChild(checkboxWrapper);
 
     container.appendChild(taskCard);
