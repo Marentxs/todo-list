@@ -23,27 +23,27 @@ if (firstProjectCard) {
 }
 
 const testTask = new Task(
-  "Testing",
-  "Test description",
-  "2024-12-14",
-  "High",
+  "Finish novel",
+  "Read chapters 15-20 of 'Misery'",
+  "2025-12-19",
+  "Low",
   false
 );
 
 const testTask2 = new Task(
-  "Testing",
-  "Test description",
-  "2024-12-14",
-  "High",
+  "Deploy to production",
+  "Final deployment.",
+  "2025-12-20",
+  "Medium",
   false
 );
 
 const testTask3 = new Task(
-  "Testing",
-  "Test description",
-  "2024-12-14",
+  "Call mom",
+  "It's her birthday!",
+  "2025-12-15",
   "High",
-  false
+  true
 );
 
 myProject.addTask(testTask);

@@ -10,6 +10,13 @@ export class Task {
     this.priority = priority;
     this.done = done;
   }
+
+  changePriority() {
+    const priorities = ["Low", "Medium", "High"];
+    const currentIndex = priorities.indexOf(this.priority);
+    const nextIndex = (currentIndex + 1) % priorities.length;
+    this.priority = priorities[nextIndex];
+  }
 }
 
 export class Project {
@@ -20,6 +27,7 @@ export class Project {
     this.id = crypto.randomUUID();
     this.title = title;
     this.#myProject = [];
+    this.tasks = [];
   }
 
   #myProject;
@@ -37,6 +45,15 @@ export class Project {
     const index = this.#myProject.findIndex((task) => task.id === id);
     if (index !== -1) {
       this.#myProject.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
+
+  changePriority(taskId) {
+    const task = this.#myProject.find((task) => task.id === taskId);
+    if (task) {
+      task.changePriority();
       return true;
     }
     return false;

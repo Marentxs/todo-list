@@ -42,6 +42,14 @@ export class TaskController {
           this.handleTaskDelete(event);
         }
       });
+
+    document
+      .getElementById("todo-container")
+      .addEventListener("click", (event) => {
+        if (event.target.matches(".task-priority")) {
+          this.handlePriority(event);
+        }
+      });
   }
 
   handleTaskSubmit(event) {
@@ -69,5 +77,13 @@ export class TaskController {
     this.project.deleteTask(taskId);
     const updatedTasks = this.project.getTasks();
     renderTasks(updatedTasks);
+  }
+
+  handlePriority(event) {
+    const taskCard = event.target.closest(".task-card");
+    const taskId = taskCard.dataset.id;
+
+    this.project.changePriority(taskId);
+    renderTasks(this.project.getTasks());
   }
 }

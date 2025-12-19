@@ -29,11 +29,22 @@ export function renderTasks(tasks) {
     taskDetails.textContent = `Due: ${task.date}`;
     contentWrapper.appendChild(taskDetails);
 
-    const taskPriority = document.createElement("p");
+    const taskPriority = document.createElement("span");
     taskPriority.className = "task-priority";
     taskPriority.textContent = `Priority: ${task.priority}`;
     contentWrapper.appendChild(taskPriority);
     taskCard.appendChild(contentWrapper);
+
+    function getPriorityColor(priority) {
+      const colors = {
+        Low: "#55AA55",
+        Medium: "#FFAA00",
+        High: "#C00000",
+      };
+      return colors[priority];
+    }
+
+    taskPriority.style.backgroundColor = getPriorityColor(task.priority);
 
     const checkboxWrapper = document.createElement("div");
     checkboxWrapper.className = "task-checkbox-wrapper";
