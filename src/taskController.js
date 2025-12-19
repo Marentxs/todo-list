@@ -4,6 +4,7 @@ import { Task } from "./model";
 export class TaskController {
   constructor(project) {
     this.project = project;
+    this.projectList = null;
 
     this.openBtn = document.getElementById("openBtn");
     this.newTask = document.getElementById("newTask");
@@ -16,6 +17,10 @@ export class TaskController {
 
   setProject(newProject) {
     this.project = newProject;
+  }
+
+  setProjectList(projectList) {
+    this.projectList = projectList;
   }
 
   bindEvents() {
@@ -63,6 +68,10 @@ export class TaskController {
 
     this.project.addTask(new Task(title, description, date, priority, done));
 
+    if (this.projectList) {
+      this.projectList.saveToStorage();
+    }
+
     const updatedTasks = this.project.getTasks();
     renderTasks(updatedTasks);
 
@@ -75,6 +84,11 @@ export class TaskController {
     const taskId = taskCard.dataset.id;
 
     this.project.deleteTask(taskId);
+
+    if (this.projectList) {
+      this.projectList.saveToStorage();
+    }
+
     const updatedTasks = this.project.getTasks();
     renderTasks(updatedTasks);
   }
@@ -84,6 +98,11 @@ export class TaskController {
     const taskId = taskCard.dataset.id;
 
     this.project.changePriority(taskId);
+
+    if (this.projectList) {
+      this.projectList.saveToStorage();
+    }
+
     renderTasks(this.project.getTasks());
   }
 }

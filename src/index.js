@@ -6,54 +6,80 @@ import { TaskController } from "./taskController.js";
 
 const myProjectList = new projectList();
 
-const myProject = new Project("Daily");
-const myProject2 = new Project("Weekly");
-const myProject3 = new Project("Monthly");
+let projects = myProjectList.getProjects();
 
-myProjectList.addProject(myProject);
-myProjectList.addProject(myProject2);
-myProjectList.addProject(myProject3);
+if (projects.length === 0) {
+  const myProject = new Project("Daily");
+  const myProject2 = new Project("Weekly");
+  const myProject3 = new Project("Monthly");
 
-const projects = myProjectList.getProjects();
-renderProjects(projects, myProject.id);
+  myProjectList.addProject(myProject);
+  myProjectList.addProject(myProject2);
+  myProjectList.addProject(myProject3);
 
-const firstProjectCard = document.querySelector(".project-card");
-if (firstProjectCard) {
-  firstProjectCard.classList.add("active-project");
+  renderProjects(projects, myProject.id);
+
+  const firstProjectCard = document.querySelector(".project-card");
+  if (firstProjectCard) {
+    firstProjectCard.classList.add("active-project");
+  }
+
+  const testTask = new Task(
+    "Finish novel",
+    "Read chapters 15-20 of 'Misery'",
+    "2025-12-19",
+    "Low",
+    false
+  );
+
+  const testTask2 = new Task(
+    "Deploy to production",
+    "Final deployment.",
+    "2025-12-20",
+    "Medium",
+    false
+  );
+
+  const testTask3 = new Task(
+    "Call mom",
+    "It's her birthday!",
+    "2025-12-15",
+    "High",
+    true
+  );
+
+  myProject.addTask(testTask);
+  myProject.addTask(testTask2);
+  myProject.addTask(testTask3);
 }
 
-const testTask = new Task(
-  "Finish novel",
-  "Read chapters 15-20 of 'Misery'",
-  "2025-12-19",
-  "Low",
-  false
-);
+myProjectList.saveToStorage();
 
-const testTask2 = new Task(
-  "Deploy to production",
-  "Final deployment.",
-  "2025-12-20",
-  "Medium",
-  false
-);
+projects = myProjectList.getProjects();
 
-const testTask3 = new Task(
-  "Call mom",
-  "It's her birthday!",
-  "2025-12-15",
-  "High",
-  true
-);
+if (projects.length > 0) {
+  const firstProject = projects[0];
+  renderProjects(projects, firstProject.id);
 
-myProject.addTask(testTask);
-myProject.addTask(testTask2);
-myProject.addTask(testTask3);
+  const firstProjectCard = document.querySelector(".project-card");
+  if (firstProjectCard) {
+    firstProjectCard.classList.add("active-project");
+  }
 
-const tasks = myProject.getTasks();
-renderTasks(tasks);
+  const tasks = firstProject.getTasks();
+  renderTasks(tasks);
 
-const taskController = new TaskController(myProject);
-const projectController = new ProjectController(myProjectList, taskController);
-
-projectController.activeProjectId = myProject.id;
+  const taskController = new TaskController(firstProject);
+  const projectController = new ProjectController(
+    myProjectList,
+    taskController
+  );
+  projectController.activeProjectId = firstProject.id;
+} else {
+  renderProjects(projects);
+  const taskController = new TaskController(null);
+  const projectController = new ProjectController(
+    myProjectList,
+    taskController
+  );
+}
