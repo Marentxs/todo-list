@@ -26,9 +26,13 @@ export function renderTasks(tasks) {
 
     const taskDetails = document.createElement("p");
     taskDetails.className = "task-details";
-    taskDetails.textContent = `Due: ${task.date} || Priority: ${task.priority}`;
+    taskDetails.textContent = `Due: ${task.date}`;
     contentWrapper.appendChild(taskDetails);
 
+    const taskPriority = document.createElement("p");
+    taskPriority.className = "task-priority";
+    taskPriority.textContent = `Priority: ${task.priority}`;
+    contentWrapper.appendChild(taskPriority);
     taskCard.appendChild(contentWrapper);
 
     const checkboxWrapper = document.createElement("div");
