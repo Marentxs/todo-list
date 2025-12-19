@@ -5,6 +5,7 @@ export class ProjectController {
   constructor(projectList, taskController) {
     this.list = projectList;
     this.taskController = taskController;
+    this.activeProjectId = null;
 
     this.newProjectBtn = document.getElementById("newProjectBtn");
     this.projectPopup = document.getElementById("projectPopup");
@@ -48,7 +49,7 @@ export class ProjectController {
     this.list.addProject(new Project(title));
 
     const updatedProjects = this.list.getProjects();
-    renderProjects(updatedProjects);
+    renderProjects(updatedProjects, this.activeProjectId);
 
     this.projectPopup.classList.remove("open");
     this.projectForm.reset();
@@ -61,10 +62,10 @@ export class ProjectController {
       .getProjects()
       .find((project) => project.id === projectId);
 
-    document.querySelectorAll(".project-card").forEach((card) => {
-      card.classList.remove("active-project");
-    });
-    projectCard.classList.add("active-project");
+    this.activeProjectId = projectId;
+
+    const updatedProjects = this.list.getProjects();
+    renderProjects(updatedProjects, this.activeProjectId);
 
     this.taskController.setProject(clickedProject);
     renderTasks(clickedProject.getTasks());

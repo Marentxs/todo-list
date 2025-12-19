@@ -15,7 +15,7 @@ myProjectList.addProject(myProject2);
 myProjectList.addProject(myProject3);
 
 const projects = myProjectList.getProjects();
-renderProjects(projects);
+renderProjects(projects, myProject.id);
 
 const firstProjectCard = document.querySelector(".project-card");
 if (firstProjectCard) {
@@ -55,3 +55,5 @@ renderTasks(tasks);
 
 const taskController = new TaskController(myProject);
 const projectController = new ProjectController(myProjectList, taskController);
+
+projectController.activeProjectId = myProject.id;

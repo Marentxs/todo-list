@@ -52,7 +52,7 @@ export function renderTasks(tasks) {
   });
 }
 
-export function renderProjects(projects) {
+export function renderProjects(projects, activeProjectId = null) {
   const container = document.getElementById("project-container");
   if (!container) return;
 
@@ -62,6 +62,10 @@ export function renderProjects(projects) {
     const projectCard = document.createElement("div");
     projectCard.className = "project-card";
     projectCard.dataset.id = project.id;
+
+    if (project.id === activeProjectId) {
+      projectCard.classList.add("active-project");
+    }
 
     const contentWrapper = document.createElement("div");
     contentWrapper.className = "project-card-content";
