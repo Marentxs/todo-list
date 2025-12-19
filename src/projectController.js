@@ -2,8 +2,9 @@ import { renderProjects, renderTasks } from "./ui.js";
 import { Project } from "./model.js";
 
 export class ProjectController {
-  constructor(projectList) {
+  constructor(projectList, taskController) {
     this.list = projectList;
+    this.taskController = taskController;
 
     this.newProjectBtn = document.getElementById("newProjectBtn");
     this.projectPopup = document.getElementById("projectPopup");
@@ -65,7 +66,7 @@ export class ProjectController {
     });
     projectCard.classList.add("active-project");
 
-    this.project = clickedProject;
+    this.taskController.setProject(clickedProject);
     renderTasks(clickedProject.getTasks());
   }
 }

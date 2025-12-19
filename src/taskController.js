@@ -14,6 +14,10 @@ export class TaskController {
     this.bindEvents();
   }
 
+  setProject(newProject) {
+    this.project = newProject;
+  }
+
   bindEvents() {
     if (this.openBtn) {
       this.openBtn.addEventListener("click", () => {
@@ -35,7 +39,7 @@ export class TaskController {
       .getElementById("todo-container")
       .addEventListener("click", (event) => {
         if (event.target.matches(".trash-icon")) {
-          handleTaskDelete(event);
+          this.handleTaskDelete(event);
         }
       });
   }

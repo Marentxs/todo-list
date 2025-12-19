@@ -53,5 +53,5 @@ myProject.addTask(testTask3);
 const tasks = myProject.getTasks();
 renderTasks(tasks);
 
-new ProjectController(myProjectList);
-new TaskController(myProject);
+const taskController = new TaskController(myProject);
+const projectController = new ProjectController(myProjectList, taskController);
