@@ -82,7 +82,7 @@ body {
   padding: 16px 20px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-align: left;
   border-radius: 0;
   margin: 10px 0;
@@ -118,7 +118,7 @@ body {
   color: #000;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 14px;
+  font-size: 12px;
   text-align: left;
   margin-bottom: 10px;
 }
@@ -146,11 +146,12 @@ body {
 }
 
 .task-card-content p {
+  font-size: 16px;
   margin-bottom: 5px;
 }
 
 .task-card-content > .task-title {
-  font-size: 30px;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
@@ -168,7 +169,7 @@ body {
   border: 3px outset #fff;
   transition: all 0.1s ease-in-out;
   margin-bottom: 20px;
-  font-size: 1.3rem;
+  font-size: 26px;
   font-weight: 500;
   cursor: pointer;
 }

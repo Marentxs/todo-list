@@ -27,7 +27,7 @@ if (projects.length === 0) {
   const testTask = new Task(
     "Finish novel",
     "Read chapters 15-20 of 'Misery'",
-    "2025-12-19",
+    "2025-12-30",
     "Low",
     false
   );
@@ -35,7 +35,7 @@ if (projects.length === 0) {
   const testTask2 = new Task(
     "Deploy to production",
     "Final deployment.",
-    "2025-12-20",
+    "2025-12-26",
     "Medium",
     false
   );

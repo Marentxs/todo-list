@@ -1,4 +1,5 @@
 import trashIconSrc from "./images/trash.svg";
+import { differenceInDays, isPast } from "date-fns";
 
 export function renderTasks(tasks) {
   const container = document.getElementById("todo-container");
@@ -24,9 +25,29 @@ export function renderTasks(tasks) {
     taskDescription.textContent = task.description;
     contentWrapper.appendChild(taskDescription);
 
+    function getDueStatus(dueDate) {
+      const today = new Date();
+      const daysRemaining = differenceInDays(dueDate, today);
+
+      if (isPast(dueDate)) {
+        return `Overdue by ${Math.abs(daysRemaining)} days`;
+      }
+
+      if (daysRemaining === 0) {
+        return `Due today!`;
+      }
+
+      if (daysRemaining === 1) {
+        return `Due tomorrow`;
+      }
+
+      return `Due in ${daysRemaining} days`;
+    }
+
+    const dueDate = task.date;
     const taskDetails = document.createElement("p");
     taskDetails.className = "task-details";
-    taskDetails.textContent = `Due: ${task.date}`;
+    taskDetails.textContent = `${getDueStatus(dueDate)}`;
     contentWrapper.appendChild(taskDetails);
 
     const taskPriority = document.createElement("span");
