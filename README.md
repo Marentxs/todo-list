@@ -1,4 +1,4 @@
-Todo List
+# Todo List
 
 🔗 **Live Demo:** https://marentxs.github.io/todo-list/
 
