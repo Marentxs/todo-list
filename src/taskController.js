@@ -2,9 +2,9 @@ import { renderTasks } from "./ui";
 import { Task } from "./model";
 
 export class TaskController {
-  constructor(project) {
+  constructor(project, projectList) {
     this.project = project;
-    this.projectList = null;
+    this.projectList = projectList;
 
     this.openBtn = document.getElementById("openBtn");
     this.newTask = document.getElementById("newTask");
@@ -53,6 +53,9 @@ export class TaskController {
       .addEventListener("click", (event) => {
         if (event.target.matches(".task-priority")) {
           this.handlePriority(event);
+          if (this.projectList) {
+            this.projectList.saveToStorage();
+          }
         }
       });
   }

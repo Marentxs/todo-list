@@ -69,7 +69,7 @@ if (projects.length > 0) {
   const tasks = firstProject.getTasks();
   renderTasks(tasks);
 
-  const taskController = new TaskController(firstProject);
+  const taskController = new TaskController(firstProject, myProjectList);
   const projectController = new ProjectController(
     myProjectList,
     taskController
@@ -77,7 +77,7 @@ if (projects.length > 0) {
   projectController.activeProjectId = firstProject.id;
 } else {
   renderProjects(projects);
-  const taskController = new TaskController(null);
+  const taskController = new TaskController(firstProject, myProjectList);
   const projectController = new ProjectController(
     myProjectList,
     taskController
